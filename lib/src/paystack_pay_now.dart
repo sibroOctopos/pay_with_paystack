@@ -148,6 +148,8 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
         child: FutureBuilder<PaystackRequestResponse>(
           future: _makePaymentRequest(),
           builder: (context, AsyncSnapshot<PaystackRequestResponse> snapshot) {
+                                  print('octopos test ${snapshot}');
+
             /// Show screen if snapshot has data and status is true.
             if (snapshot.hasData && snapshot.data!.status == true) {
               final controller = WebViewController()
@@ -156,7 +158,6 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                 ..setNavigationDelegate(
                   NavigationDelegate(
                     onNavigationRequest: (request) async {
-                      print('octopos test ${request}');
                       if (request.url.contains('cancelurl.com')) {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
