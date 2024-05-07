@@ -148,7 +148,6 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
         child: FutureBuilder<PaystackRequestResponse>(
           future: _makePaymentRequest(),
           builder: (context, AsyncSnapshot<PaystackRequestResponse> snapshot) {
-            print('octopos test ${snapshot}');
 
             /// Show screen if snapshot has data and status is true.
             if (snapshot.hasData && snapshot.data!.status == true) {
@@ -163,10 +162,10 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                             .then((value) {
                           if (value == true) {
                             widget.transactionCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           } else {
                             widget.transactionNotCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           }
                         });
                       } else if (request.url.contains('paystack.co/close')) {
