@@ -156,7 +156,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                 ..setNavigationDelegate(
                   NavigationDelegate(
                     onNavigationRequest: (request) async {
-                      print(request);
+                      print('octopos test ${request}');
                       if (request.url.contains('cancelurl.com')) {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
