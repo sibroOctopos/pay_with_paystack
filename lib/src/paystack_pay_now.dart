@@ -217,7 +217,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                 'Print', //should be a positional parameter
                 onMessageReceived: (JavaScriptMessage message) {
                   //Java"S"criptMessage (not Java"s"criptMessage)
-                  print(message.message);
+                  print('Received message: ${message.message}');
                 },
               );
               return WebViewWidget(
