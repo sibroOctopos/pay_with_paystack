@@ -144,6 +144,9 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Fund Wallet'),
+      ),
       body: SafeArea(
         child: FutureBuilder<PaystackRequestResponse>(
           future: _makePaymentRequest(),
