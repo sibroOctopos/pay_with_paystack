@@ -180,7 +180,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                             Navigator.of(context).pop(); //close webview
                           } else {
                             widget.transactionNotCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           }
                         });
                       } else if (request.url.contains(widget.callbackUrl)) {
@@ -189,10 +189,10 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                             .then((value) {
                           if (value == true) {
                             widget.transactionCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           } else {
                             widget.transactionNotCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           }
                         });
                       }
@@ -202,10 +202,10 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                             .then((value) {
                           if (value == true) {
                             widget.transactionCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           } else {
                             widget.transactionNotCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           }
                         });
                       }
