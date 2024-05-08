@@ -188,6 +188,8 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
+                                                              print("Transaction Successful!");
+
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           } else {
@@ -196,11 +198,13 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                           }
                         });
                       }
-                      if (request.url == "https://hello.pstk.xyz/callback") {
+                      if (request.url == "https://sibro.ng") {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
+                                                              print("Transaction Successful!");
+
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           } else {
