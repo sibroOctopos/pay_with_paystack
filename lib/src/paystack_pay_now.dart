@@ -161,7 +161,6 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
-                            print("Transaction Successful! 1");
                             widget.transactionCompleted?.call();
                             Navigator.of(widget.context!).pop(); //close webview
                           } else {
@@ -174,9 +173,8 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
-                            print("Transaction Successful! 2");
                             widget.transactionCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           } else {
                             widget.transactionNotCompleted?.call();
                             Navigator.of(widget.context!).pop(); //close webview
@@ -187,8 +185,6 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
-                            print("Transaction Successful! 3");
-
                             widget.transactionCompleted?.call();
                             Navigator.of(widget.context!).pop(); //close webview
                           } else {
@@ -197,13 +193,11 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                           }
                         });
                       }
-                      if (request.url == "https://sibro.ng") {
+                      if (request.url == "https://hello.pstk.xyz/callback") {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
-                            print("Transaction Successful! 4");
-
                             widget.transactionCompleted?.call();
                             Navigator.of(widget.context!).pop(); //close webview
                           } else {
@@ -214,7 +208,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                       }
                       return NavigationDecision.navigate;
                     },
-                  )
+                  ),
                 )
                 ..loadRequest(Uri.parse(snapshot.data!.authUrl));
               return WebViewWidget(
