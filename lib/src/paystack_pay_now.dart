@@ -161,11 +161,12 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
+                            print("Transaction Successful! 1");
                             widget.transactionCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           } else {
                             widget.transactionNotCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           }
                         });
                       } else if (request.url.contains('paystack.co/close')) {
@@ -173,11 +174,12 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
+                            print("Transaction Successful! 2");
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           } else {
                             widget.transactionNotCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           }
                         });
                       } else if (request.url.contains(widget.callbackUrl)) {
@@ -185,30 +187,34 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
+                            print("Transaction Successful! 3");
+
                             widget.transactionCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           } else {
                             widget.transactionNotCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           }
                         });
                       }
-                      if (request.url == "https://hello.pstk.xyz/callback") {
+                      if (request.url == "https://sibro.ng") {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
+                            print("Transaction Successful! 4");
+
                             widget.transactionCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           } else {
                             widget.transactionNotCompleted?.call();
-                            Navigator.of(widget.context!).pop(); //close webview
+                            Navigator.of(context).pop(); //close webview
                           }
                         });
                       }
                       return NavigationDecision.navigate;
                     },
-                  ),
+                  )
                 )
                 ..loadRequest(Uri.parse(snapshot.data!.authUrl));
               return WebViewWidget(
