@@ -160,6 +160,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
+                              print('transVal, $value');
                           if (value == true) {
                             print("Transaction Successful! 1");
                             widget.transactionCompleted?.call();
@@ -173,6 +174,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
+                              print('transVal, $value');
                           if (value == true) {
                             print("Transaction Successful! 2");
                             widget.transactionCompleted?.call();
@@ -186,7 +188,9 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
+                              print('transVal, $value');
                           if (value == true) {
+
                             print("Transaction Successful! 3");
 
                             widget.transactionCompleted?.call();
@@ -201,6 +205,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
+                              print('transVal, $value');
                           if (value == true) {
                             print("Transaction Successful! 4");
 
