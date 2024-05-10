@@ -151,7 +151,6 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
         child: FutureBuilder<PaystackRequestResponse>(
           future: _makePaymentRequest(),
           builder: (context, AsyncSnapshot<PaystackRequestResponse> snapshot) {
-
             /// Show screen if snapshot has data and status is true.
             if (snapshot.hasData && snapshot.data!.status == true) {
               final controller = WebViewController()
@@ -164,6 +163,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
+                            print("Transaction Successful! 1");
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           } else {
@@ -176,6 +176,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
+                            print("Transaction Successful! 2");
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           } else {
@@ -188,7 +189,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
-                                                              print("Transaction Successful!");
+                            print("Transaction Successful! 3");
 
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
@@ -203,7 +204,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                                 snapshot.data!.reference)
                             .then((value) {
                           if (value == true) {
-                                                              print("Transaction Successful!");
+                            print("Transaction Successful! 4");
 
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
