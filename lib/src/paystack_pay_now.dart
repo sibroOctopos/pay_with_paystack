@@ -144,9 +144,6 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Fund Wallet'),
-      ),
       body: SafeArea(
         child: FutureBuilder<PaystackRequestResponse>(
           future: _makePaymentRequest(),
@@ -154,6 +151,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
             /// Show screen if snapshot has data and status is true.
             if (snapshot.hasData && snapshot.data!.status == true) {
               final controller = WebViewController()
+                ..setJavaScriptMode(JavaScriptMode.unrestricted)
                 ..setUserAgent("Flutter;Webview")
                 ..setNavigationDelegate(
                   NavigationDelegate(
@@ -216,17 +214,9 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                       }
                       return NavigationDecision.navigate;
                     },
-                  ),
+                  )
                 )
-                ..setJavaScriptMode(JavaScriptMode.unrestricted)
                 ..loadRequest(Uri.parse(snapshot.data!.authUrl));
-              controller.addJavaScriptChannel(
-                'Print', //should be a positional parameter
-                onMessageReceived: (JavaScriptMessage message) {
-                  //Java"S"criptMessage (not Java"s"criptMessage)
-                  print('Received message: ${message.message}');
-                },
-              );
               return WebViewWidget(
                 controller: controller,
               );
