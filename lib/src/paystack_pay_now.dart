@@ -128,6 +128,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
     if (response.statusCode == 200) {
       /// Response code 200 means OK.
       var decodedRespBody = jsonDecode(response.body);
+      print(decodedRespBody);
       if (decodedRespBody["data"]["gateway_response"] == "Approved" ||
           decodedRespBody["data"]["gateway_response"] == "Successful") {
         return true;
