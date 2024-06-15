@@ -160,12 +160,13 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
-                              print('transVal, $value');
+                              print('transVal1, $value');
                           if (value == true) {
                             print("Transaction Successful! 1");
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           } else {
+                            print("Transaction not Successful! 1");
                             widget.transactionNotCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           }
@@ -174,12 +175,13 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
-                              print('transVal, $value');
+                              print('transVal2, $value');
                           if (value == true) {
                             print("Transaction Successful! 2");
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           } else {
+                             print("Transaction not Successful! 21");
                             widget.transactionNotCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           }
@@ -188,7 +190,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                         await _checkTransactionStatusSuccessful(
                                 snapshot.data!.reference)
                             .then((value) {
-                              print('transVal, $value');
+                              print('transVal3, $value');
                           if (value == true) {
 
                             print("Transaction Successful! 3");
@@ -196,6 +198,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           } else {
+                             print("Transaction not Successful! 3");
                             widget.transactionNotCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           }
@@ -212,6 +215,7 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
                             widget.transactionCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           } else {
+                             print("Transaction not Successful! 4");
                             widget.transactionNotCompleted?.call();
                             Navigator.of(context).pop(); //close webview
                           }
