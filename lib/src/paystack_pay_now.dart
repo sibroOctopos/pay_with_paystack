@@ -130,7 +130,8 @@ class _PaystackPayNowState extends State<PaystackPayNow> {
       var decodedRespBody = jsonDecode(response.body);
       print(decodedRespBody);
       if (decodedRespBody["data"]["gateway_response"] == "Approved" ||
-          decodedRespBody["data"]["gateway_response"] == "Successful") {
+          decodedRespBody["data"]["gateway_response"] == "Successful" ||
+          decodedRespBody["data"]["gateway_response"] == "Payment authorized.") {
         return true;
       } else {
         return false;
